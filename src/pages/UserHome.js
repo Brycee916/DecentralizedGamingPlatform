@@ -69,8 +69,9 @@ const UserHome = () => {
     fetchGames();
   }, []);
 
-  const handlePurchase = (gameId) => {
-    console.log("Purchasing game with ID:", gameId);
+  const handlePurchase = (game) => {
+    console.log("Purchasing game with ID:", game.id);
+    alert(`Purchased ${game.title}\nPrice was ${game.price}`);
   };
 
   const styles = {
@@ -166,7 +167,7 @@ const UserHome = () => {
               <p style={styles.gamePrice}>{game.price}</p>
               <button
                 style={styles.purchaseButton}
-                onClick={() => handlePurchase(game.id)}
+                onClick={() => handlePurchase(game)}
               >
                 Purchase
               </button>

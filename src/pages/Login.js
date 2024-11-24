@@ -6,9 +6,9 @@ const Login = () => {
   const navigate = useNavigate();
 
   const handleLogin = () => {
-    if (userType === "developer") {
+    if (userType === "Developer") {
       navigate("/developer/home");
-    } else if (userType === "user") {
+    } else if (userType === "Gamer") {
       navigate("/user/home");
     }
   };
@@ -68,8 +68,8 @@ const Login = () => {
           value={userType}
         >
           <option value="">Select User Type</option>
-          <option value="user">User</option>
-          <option value="developer">Developer</option>
+          <option value="Gamer">Gamer</option>
+          <option value="Developer">Developer</option>
         </select>
         <button
           style={styles.button}
