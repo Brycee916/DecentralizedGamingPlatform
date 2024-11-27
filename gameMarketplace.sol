@@ -84,4 +84,21 @@ contract GameMarketplace {
         // Emit an event for the transfer
         emit GameTransferred(_gameId, msg.sender, _newOwner);
     }
+
+    // Function to update the price of a game
+    function updateGamePrice(uint _gameId, uint _newPrice) public {
+        //Retrieve the game from the mapping
+        Game storage game = games[_gameId];
+
+        //Ensure the sender is the creator of the game
+        require(game.creator == msg.sender, "Only the game creator can update the price!");
+
+        //Ensure the new price is valid
+        require(_newPrice > 0, "Price must be greater than zero");
+
+        //update the game price
+        game.price = _newPrice;
+    }
+
+    
 }
